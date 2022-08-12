@@ -1,9 +1,5 @@
+const TodoItem: React.FC<{ title: string }> = ({ title }) => {
+  return <li>{title}</li>;
+};
 
-
-const TodoItem = () => {
-  return (
-    <div>TodoItem</div>
-  )
-}
-
-export default TodoItem
+export default TodoItem;
