@@ -13,11 +13,14 @@ export default function App() {
     const newTodo = new Todo(title);
     setTodos((prevTodo) => [...prevTodo, newTodo]);
   };
+  const removeTodo = (todoId: string) => {
+    setTodos((prevTodo) => prevTodo.filter((todo) => todo.id !== todoId));
+  };
 
   return (
     <div>
       <NewTodo onAddTodo={addTodo} />
-      <TodoList items={todos} />
+      <TodoList items={todos} onRemoveTodo={removeTodo} />
       <br />
       <hr />
       <br />
