@@ -1,24 +1,20 @@
 import { useRef } from "react";
 
-
-const NewTodo = () => {
-  const titleRef = useRef<HTMLInputElement>(null)
+const NewTodo: React.FC<{ onAddTodo: (title: string) => void }> = ({
+  onAddTodo,
+}) => {
+  const titleRef = useRef<HTMLInputElement>(null);
 
   const todoSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
 
-    const enteredTitle = titleRef.current!.value
-    
+    const enteredTitle = titleRef.current!.value;
+
     if (enteredTitle.trim().length === 0) {
-      return
+      return;
     }
-      
-    }
-    // const todoText = (event.target as HTMLFormElement).elements.todoText.value;
-    // if (todoText) {
-    //   dispatch(addTodo(todoText));
-    // }
-  // };
+    onAddTodo(enteredTitle);
+  };
 
   return (
     <form onSubmit={todoSubmitHandler}>
